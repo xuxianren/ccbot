@@ -41,6 +41,9 @@ class CommonParser:
             self._root = etree.HTML(self.html)
         return self._root
 
+    def extract_html(self):
+        return self.html
+
     def extract_text(self):
         cleaned_html = self.cleaner.clean_html(self.html)
         root = etree.HTML(cleaned_html)
