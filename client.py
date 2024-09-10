@@ -43,22 +43,22 @@ class CcbotClient:
         result = resp.json()
         return result
 
-    async def search(self, keyword, engine=EngineEnum.toutiao, timeout=-1, mode=Mode.smart)->dict:
+    async def search(self, keyword, engine=EngineEnum.toutiao, timeout=-1)->dict:
         api = urljoin(self.baseurl, "/search")
         data = {
             "keyword": keyword,
             "engine": engine,
             "timeout": timeout,
-            "mode": mode,
         }
         return await self.post(api, json=data)
 
-    async def crawl(self, url, formats=default_formats, timeout=-1)->dict:
+    async def crawl(self, url, formats=default_formats, timeout=-1, mode=Mode.smart)->dict:
         api = urljoin(self.baseurl, "/crawl")
         data = {
             "url": url,
             "formats": formats,
             "timeout": timeout,
+            "mode": mode,
         }
         return await self.post(api, json=data)
 
