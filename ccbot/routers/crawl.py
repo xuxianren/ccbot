@@ -23,7 +23,7 @@ class CrawlIn(BaseModel):
 class CrawlOut(BaseModel):
     success: bool
     url: str
-    html: str
+    html: str = None
     title: str = None
     metadata: str = None 
     text: str = None
