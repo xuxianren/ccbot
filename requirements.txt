@@ -1,0 +1,12 @@
+uvicorn
+fastapi
+
+pydantic
+pydantic_settings
+
+playwright
+httpx
+lxml
+readability-lxml
+lxml[html_clean]
+html2text
