@@ -25,7 +25,11 @@
 + 网页截图
 + html抽取
 
+### 快速开始
 
+```bash
+docker run -d -p 80:80 xuxianren94/ccbot:latest
+```
 
 ### 部署
 #### 本地
@@ -41,8 +45,19 @@ uvicorn ccbot.app:app
 ```
 
 #### docker
+**构建**
+1. chrominum的下载需要访问外网，修改下面代理地址
+2. dockerfile中pip使用了腾讯的镜像源，可以视情况修改
 
+```bash
+docker build . --build-arg "HTTP_PROXY=xxx" --build-arg "HTTPS_PROXY=xxx" --build-arg "NO_PROXY=localhost,127.0.0.1,.example.com" -t ccbot:latest
+docker run -d --name ccbot -p 80:80 ccbot:latest
+```
 
+**使用**
+```bash
+docker run -d -p 80:80 xuxianren94/ccbot:latest 
+```
 
 ### 使用
 部署完成后打开http://127.0.0.1:8000/docs查看文档和调试
