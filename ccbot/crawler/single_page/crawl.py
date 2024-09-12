@@ -147,7 +147,7 @@ async def common_crawl(url, timeout, formats=DEFAULT_FORMANT, mode=DEFAULT_MODE)
         result, _ = await get_html_by_httpx(url, timeout, formats, ctx=None)
     elif mode == Mode.browser:
         result, _ = await get_html_by_browser(
-            url, timeout, formats, init_script=False, keep_ctx=False
+            url, timeout, formats, init_script=True, keep_ctx=False
         )
     else:
         raise ValueError("无效的mode")

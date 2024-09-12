@@ -19,17 +19,17 @@ async def get_browser():
             browser = await playwright.chromium.launch(headless=True)
     return browser
 
+
 async def handle_route(route):
     headers = route.request.headers
     headers.update(
         {
             "sec-ch-ua": '"Chromium";v="128", "Not;A=Brand";v="24", "Google Chrome";v="128"',
             "Accept-Language": "zh-CN,zh;q=0.9",
-            "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
+            "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
         }
     )
     await route.continue_(headers=headers)
-
 
 
 @asynccontextmanager
